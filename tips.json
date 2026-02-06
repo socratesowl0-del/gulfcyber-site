@@ -1,4 +1,13 @@
 {
-  "tips": [],
+  "tips": [
+    {
+      "id": 1,
+      "date": "2026-02-06",
+      "content": "Behbehani Motors (H-Behbehani Brothers WLL), the first Porsche dealership in the Middle East and authorized Volkswagen dealer in Kuwait/Bahrain, was hit by Incransom ransomware. Appeared on leak site Feb 3, 2026. Company founded 1957, represents premium automotive brands. Data exfiltration confirmed.",
+      "country": "🇧🇭 Bahrain",
+      "type": "Ransomware",
+      "actor": "Incransom"
+    }
+  ],
   "last_updated": "2026-02-06"
 }
