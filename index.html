@@ -536,30 +536,76 @@
         }
 
         /* Responsive */
+        
+        /* Newsletter - Clean Mobile-First */
+        .newsletter-section { padding: 30px 0; }
+        .newsletter-box {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .newsletter-box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .newsletter-box > p {
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .newsletter-form input,
+        .newsletter-form select {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+        .newsletter-form input:focus,
+        .newsletter-form select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .newsletter-form button {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+
         @media (max-width: 1200px) {
             .hero-stats { grid-template-columns: repeat(3, 1fr); }
             .charts-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        /* Newsletter Section */
-        .newsletter-section { padding: 50px 0; margin: 40px 0; }
-        .newsletter-card { background: linear-gradient(135deg, var(--surface) 0%, #0d1117 100%); border: 1px solid var(--accent); border-radius: 16px; padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; overflow: hidden; }
-        .newsletter-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
-        .newsletter-content h2 { font-size: 1.8rem; margin-bottom: 15px; color: var(--text); }
-        .newsletter-content p { color: var(--muted); margin-bottom: 20px; line-height: 1.7; }
-        .newsletter-benefits { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0; }
-        .newsletter-benefits li { color: var(--accent); font-size: 0.9rem; }
-        .newsletter-form-container { background: var(--surface2); border-radius: 12px; padding: 30px; }
-        .newsletter-form .form-group { margin-bottom: 15px; }
-        .newsletter-form input, .newsletter-form select { width: 100%; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95rem; }
-        .newsletter-form input:focus, .newsletter-form select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,255,136,0.1); }
-        .newsletter-form input::placeholder { color: var(--muted); }
-        .subscribe-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--accent), #00cc6a); border: none; border-radius: 8px; color: var(--bg); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; }
-        .subscribe-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,255,136,0.3); }
-        .form-note { text-align: center; font-size: 0.75rem; color: var(--muted); margin-top: 12px; }
-        .subscriber-count { text-align: center; margin-top: 15px; font-size: 0.85rem; color: var(--muted); }
-        .subscriber-count strong { color: var(--accent); }
-
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.6rem; }
             .hero-stats { grid-template-columns: repeat(2, 1fr); }
@@ -740,53 +786,31 @@
                 </ul>
             </section>
 
-            <!-- Newsletter Section -->
+                        <!-- Newsletter Section -->
             <section class="newsletter-section" id="newsletter">
-                <div class="newsletter-card">
-                    <div class="newsletter-content">
-                        <h2>🔔 Get GCC Threat Alerts</h2>
-                        <p>Receive weekly ransomware intelligence reports for Saudi Arabia, UAE &amp; GCC. Be the first to know about new attacks targeting your region.</p>
-                        <ul class="newsletter-benefits">
-                            <li>✓ Weekly threat digest</li>
-                            <li>✓ New victim alerts</li>
-                            <li>✓ Emerging threat groups</li>
-                            <li>✓ 100% free forever</li>
-                        </ul>
-                    </div>
-                    <div class="newsletter-form-container">
-                        <form class="newsletter-form" action="https://formsubmit.co/socratesowl0@gmail.com" method="POST" method="POST">
-                            <input type="hidden" name="_subject" value="🔔 New GulfCyber.io Subscriber!">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_next" value="https://socratesowl0-del.github.io/gulfcyber-site/?subscribed=true">
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder="Enter your email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="organization" placeholder="Organization (optional)">
-                            </div>
-                            <div class="form-group">
-                                <select name="country">
-                                    <option value="">Select Country</option>
-                                    <option value="Saudi Arabia">🇸🇦 Saudi Arabia</option>
-                                    <option value="UAE">🇦🇪 UAE</option>
-                                    <option value="Qatar">🇶🇦 Qatar</option>
-                                    <option value="Kuwait">🇰🇼 Kuwait</option>
-                                    <option value="Bahrain">🇧🇭 Bahrain</option>
-                                    <option value="Oman">🇴🇲 Oman</option>
-                                    <option value="Other">🌍 Other</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="subscribe-btn">Subscribe Free →</button>
-                            <p class="form-note">No spam. Unsubscribe anytime.</p>
-                            <p class="subscriber-count"><strong>127</strong> security professionals subscribed</p>
-                        </form>
-                    </div>
+                <div class="newsletter-box">
+                    <h2>🔔 Get GCC Threat Alerts</h2>
+                    <p>Weekly ransomware intelligence for Saudi Arabia, UAE & GCC region</p>
+                    <form class="newsletter-form" action="https://formsubmit.co/socratesowl0@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="🔔 New GulfCyber Subscriber">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://socratesowl0-del.github.io/gulfcyber-site/?success=1">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <select name="country">
+                            <option value="">Country (optional)</option>
+                            <option value="SA">🇸🇦 Saudi Arabia</option>
+                            <option value="AE">🇦🇪 UAE</option>
+                            <option value="QA">🇶🇦 Qatar</option>
+                            <option value="KW">🇰🇼 Kuwait</option>
+                            <option value="Other">🌍 Other</option>
+                        </select>
+                        <button type="submit">Subscribe Free →</button>
+                    </form>
+                    <p class="form-note">Join 100+ security professionals • No spam</p>
                 </div>
             </section>
 
-
-            <!-- FAQ Section for SEO -->
+<!-- FAQ Section for SEO -->
             <section class="faq-section" id="faq" aria-labelledby="faq-title">
                 <h2 id="faq-title">Frequently Asked Questions</h2>
                 
