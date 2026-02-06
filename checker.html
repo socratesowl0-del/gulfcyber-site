@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Exposure Checker | GulfCyber.io</title>
+    <meta name="description" content="Check if your organization has been compromised in ransomware attacks or data breaches targeting the GCC region.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .search-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #00d4ff;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,212,255,0.3);
+        }
+        .hint {
+            color: #666;
+            font-size: 0.9em;
+        }
+        #results {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: none;
+        }
+        .result-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .status-icon {
+            font-size: 3em;
+        }
+        .status-safe { color: #00ff88; }
+        .status-danger { color: #ff4444; }
+        .status-warning { color: #ffaa00; }
+        .result-title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .finding {
+            background: rgba(255,0,0,0.1);
+            border-left: 4px solid #ff4444;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .finding-safe {
+            background: rgba(0,255,0,0.1);
+            border-left-color: #00ff88;
+        }
+        .finding h4 {
+            margin-bottom: 5px;
+            color: #ff6b6b;
+        }
+        .finding-safe h4 { color: #00ff88; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat-box {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        .stat-label {
+            color: #888;
+            font-size: 0.9em;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top: 3px solid #00d4ff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Domain Exposure Checker</h1>
+        <p class="subtitle">Check if your organization appears in ransomware attacks or data breaches targeting the GCC region.</p>
+        
+        <div class="search-box">
+            <div class="input-group">
+                <input type="text" id="domain" placeholder="Enter domain (e.g., company.com.sa)" autocomplete="off">
+                <button onclick="checkDomain()">Check Now</button>
+            </div>
+            <p class="hint">We check against ransomware leak sites, breach databases, and threat intelligence feeds.</p>
+        </div>
+        
+        <div id="results"></div>
+        
+        <a href="index.html" class="back-link">← Back to GulfCyber Dashboard</a>
+    </div>
+
+    <script>
+        let threatData = null;
+        let iocData = null;
+
+        // Load data on page load
+        async function loadData() {
+            try {
+                const [threatRes, iocRes] = await Promise.all([
+                    fetch('data.json'),
+                    fetch('api/iocs.json')
+                ]);
+                threatData = await threatRes.json();
+                iocData = await iocRes.json();
+            } catch (e) {
+                console.error('Failed to load data:', e);
+            }
+        }
+        loadData();
+
+        function checkDomain() {
+            const domain = document.getElementById('domain').value.trim().toLowerCase();
+            const results = document.getElementById('results');
+            
+            if (!domain) {
+                alert('Please enter a domain');
+                return;
+            }
+
+            // Show loading
+            results.style.display = 'block';
+            results.innerHTML = '<div class="loading"><div class="spinner"></div>Scanning threat databases...</div>';
+
+            // Simulate scan delay for effect
+            setTimeout(() => {
+                performCheck(domain);
+            }, 1500);
+        }
+
+        function performCheck(domain) {
+            const results = document.getElementById('results');
+            const findings = [];
+            
+            // Check ransomware victims
+            if (threatData && threatData.victims) {
+                for (const victim of threatData.victims) {
+                    const name = (victim.name || '').toLowerCase();
+                    if (name.includes(domain) || domain.includes(name.split('.')[0])) {
+                        findings.push({
+                            type: 'ransomware',
+                            severity: 'critical',
+                            title: 'Ransomware Attack Detected',
+                            details: `Found in ${victim.group || 'unknown'} ransomware leak site`,
+                            date: victim.date || 'Unknown date',
+                            group: victim.group
+                        });
+                    }
+                }
+            }
+
+            // Check IOCs
+            if (iocData && iocData.iocs && iocData.iocs.domains) {
+                for (const ioc of iocData.iocs.domains) {
+                    if (ioc.value && ioc.value.includes(domain)) {
+                        findings.push({
+                            type: 'ioc',
+                            severity: 'high',
+                            title: 'Domain in Threat Feed',
+                            details: `Listed in ${ioc.source} - ${ioc.threat || 'malicious activity'}`,
+                            context: ioc.context
+                        });
+                    }
+                }
+            }
+
+            // Render results
+            if (findings.length > 0) {
+                results.innerHTML = `
+                    <div class="result-header">
+                        <span class="status-icon status-danger">⚠️</span>
+                        <div>
+                            <div class="result-title">Exposures Found</div>
+                            <div style="color:#ff6b6b">${findings.length} issue(s) detected for ${domain}</div>
+                        </div>
+                    </div>
+                    ${findings.map(f => `
+                        <div class="finding">
+                            <h4>${f.title}</h4>
+                            <p>${f.details}</p>
+                            ${f.date ? `<p style="color:#888;font-size:0.9em">Date: ${f.date}</p>` : ''}
+                            ${f.group ? `<p style="color:#888;font-size:0.9em">Threat Actor: ${f.group}</p>` : ''}
+                        </div>
+                    `).join('')}
+                    <div class="stats">
+                        <div class="stat-box">
+                            <div class="stat-number">${findings.filter(f => f.type === 'ransomware').length}</div>
+                            <div class="stat-label">Ransomware Hits</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">${findings.filter(f => f.type === 'ioc').length}</div>
+                            <div class="stat-label">IOC Matches</div>
+                        </div>
+                    </div>
+                    <p style="margin-top:20px;color:#888">⚡ Recommend immediate incident response review</p>
+                `;
+            } else {
+                results.innerHTML = `
+                    <div class="result-header">
+                        <span class="status-icon status-safe">✅</span>
+                        <div>
+                            <div class="result-title">No Exposures Found</div>
+                            <div style="color:#00ff88">${domain} not found in our threat databases</div>
+                        </div>
+                    </div>
+                    <div class="finding finding-safe">
+                        <h4>All Clear</h4>
+                        <p>We checked ransomware leak sites, breach databases, and IOC feeds. No matches found.</p>
+                        <p style="color:#888;margin-top:10px">Note: This doesn't guarantee safety - only that we haven't seen this domain in known threats.</p>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-box">
+                            <div class="stat-number">${threatData?.victims?.length || 0}</div>
+                            <div class="stat-label">Victims Checked</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">${iocData?.meta?.total || 0}</div>
+                            <div class="stat-label">IOCs Scanned</div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Enter key support
+        document.getElementById('domain').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkDomain();
+        });
+    </script>
+</body>
+</html>
