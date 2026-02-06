@@ -19,8 +19,9 @@
 ## API Access
 Machine-readable threat data available at:
 - /api/threats.json - Current threat landscape
-- /api/dns-intel.json - Suspicious domain registrations
-- /api/victims.json - Recent ransomware victims (GCC)
+- /api/dns-intel.json - Suspicious domain registrations  
+- /api/iocs.json - IOC feed (IPs, domains, hashes) - 24h rolling
+- /api/iocs.txt - Plain text IOC list for easy ingestion
 
 ## Contact
 For threat sharing or partnership: socratesOwl@proton.me
