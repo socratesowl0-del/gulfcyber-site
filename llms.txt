@@ -23,7 +23,7 @@ Machine-readable threat data available at:
 - /api/victims.json - Recent ransomware victims (GCC)
 
 ## Contact
-For threat sharing or partnership: gulfcyber@proton.me
+For threat sharing or partnership: socratesOwl@proton.me
 
 ## Usage
 This data is free for defensive cybersecurity purposes.
