@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHV - Threat Actor Profile | GulfCyber.io</title>
+    <meta name="description" content="Detailed threat intelligence profile for ALPHV ransomware group - TTPs, IOCs, and GCC targeting activity.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(90deg, #ff0000, #aa0000);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .actor-type { opacity: 0.8; font-size: 1.1em; }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .meta-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #ff4444;
+        }
+        .meta-label { color: #888; font-size: 0.9em; margin-bottom: 5px; }
+        .meta-value { font-size: 1.2em; color: #fff; }
+        .section {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag {
+            background: rgba(255,0,0,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .victim-list {
+            list-style: none;
+        }
+        .victim-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,0,0,0.1);
+            border-radius: 12px;
+        }
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff4444;
+        }
+        .gcc-activity {
+            padding: 15px;
+            background: rgba(255,165,0,0.1);
+            border-left: 4px solid #ffa500;
+            border-radius: 0 8px 8px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="actors.html" class="back-link">← All Threat Actors</a>
+        
+        <div class="header">
+            <h1>☠️ ALPHV</h1>
+            <div class="actor-type">Ransomware-as-a-Service (RaaS)</div>
+        </div>
+        
+        <div class="meta-grid">
+            <div class="meta-card">
+                <div class="meta-label">Also Known As</div>
+                <div class="meta-value">BlackCat, Noberus</div>
+            </div>
+            <div class="meta-card">
+                <div class="meta-label">First Seen</div>
+                <div class="meta-value">2021</div>
+            </div>
+            <div class="meta-card">
+                <div class="meta-label">Suspected Origin</div>
+                <div class="meta-value">Russia (suspected)</div>
+            </div>
+            <div class="meta-card">
+                <div class="meta-label">Ransom Range</div>
+                <div class="meta-value">$100K - $35M</div>
+            </div>
+        </div>
+        
+        <div class="stat-box">
+            <div class="stat-number">0</div>
+            <div>Confirmed GCC Victims</div>
+        </div>
+        
+        <div class="section gcc-activity">
+            <h3>🌍 GCC Activity Level</h3>
+            <p>Medium - Selective targeting</p>
+        </div>
+        
+        <div class="section">
+            <h3>🎯 Target Sectors</h3>
+            <div class="tags">
+                <span class="tag">Critical infrastructure</span><span class="tag">Healthcare</span><span class="tag">Finance</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>⚔️ Tactics, Techniques & Procedures (TTPs)</h3>
+            <div class="tags">
+                <span class="tag">Triple extortion</span><span class="tag">Rust-based malware</span><span class="tag">API for victims</span>
+            </div>
+        </div>
+        
+        
+        
+        <div class="section">
+            <h3>📚 References</h3>
+            <ul style="list-style:none;">
+                <li style="padding:5px 0;">• MITRE ATT&CK</li>
+                <li style="padding:5px 0;">• CISA Advisories</li>
+                <li style="padding:5px 0;">• Ransomware.live</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

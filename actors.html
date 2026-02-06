@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Actor Profiles | GulfCyber.io</title>
+    <meta name="description" content="Detailed profiles of ransomware groups and threat actors targeting the GCC region.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff4444;
+        }
+        .subtitle { color: #888; margin-bottom: 40px; }
+        .actor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .actor-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .actor-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff4444;
+            box-shadow: 0 10px 30px rgba(255,0,0,0.2);
+        }
+        .actor-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .actor-type {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .actor-stats {
+            background: rgba(255,0,0,0.2);
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .actor-activity {
+            color: #ffa500;
+            font-size: 0.85em;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #00d4ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Dashboard</a>
+        <h1>☠️ Threat Actor Profiles</h1>
+        <p class="subtitle">Ransomware groups and APTs targeting the GCC region</p>
+        
+        <div class="actor-grid">
+            
+        <a href="actor-lockbit.html" class="actor-card">
+            <div class="actor-name">☠️ LockBit</div>
+            <div class="actor-type">Ransomware-as-a-Service (RaaS)</div>
+            <div class="actor-stats">11 GCC victims</div>
+            <div class="actor-activity">High - Multiple Saudi and UAE victims</div>
+        </a>
+        
+        <a href="actor-alphv.html" class="actor-card">
+            <div class="actor-name">☠️ ALPHV</div>
+            <div class="actor-type">Ransomware-as-a-Service (RaaS)</div>
+            <div class="actor-stats">0 GCC victims</div>
+            <div class="actor-activity">Medium - Selective targeting</div>
+        </a>
+        
+        <a href="actor-cl0p.html" class="actor-card">
+            <div class="actor-name">☠️ Cl0p</div>
+            <div class="actor-type">Ransomware / Data Extortion</div>
+            <div class="actor-stats">0 GCC victims</div>
+            <div class="actor-activity">Medium - Mass exploitation campaigns</div>
+        </a>
+        
+        <a href="actor-medusa.html" class="actor-card">
+            <div class="actor-name">☠️ Medusa</div>
+            <div class="actor-type">Ransomware-as-a-Service (RaaS)</div>
+            <div class="actor-stats">1 GCC victims</div>
+            <div class="actor-activity">Medium - Government sector focus</div>
+        </a>
+        
+        <a href="actor-play.html" class="actor-card">
+            <div class="actor-name">☠️ Play</div>
+            <div class="actor-type">Ransomware</div>
+            <div class="actor-stats">9 GCC victims</div>
+            <div class="actor-activity">Low-Medium</div>
+        </a>
+        
+        <a href="actor-akira.html" class="actor-card">
+            <div class="actor-name">☠️ Akira</div>
+            <div class="actor-type">Ransomware-as-a-Service (RaaS)</div>
+            <div class="actor-stats">0 GCC victims</div>
+            <div class="actor-activity">Low - Emerging in region</div>
+        </a>
+        
+        </div>
+    </div>
+</body>
+</html>
