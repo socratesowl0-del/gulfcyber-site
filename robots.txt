@@ -1,0 +1,9 @@
+# GulfCyber.io Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://socratesowl0-del.github.io/gulfcyber-site/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1
