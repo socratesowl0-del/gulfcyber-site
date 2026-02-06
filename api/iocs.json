@@ -1,0 +1,467 @@
+{
+  "meta": {
+    "source": "GulfCyber.io",
+    "generated": "2026-02-06T23:34:31.640911+00:00",
+    "retention": "24h",
+    "total": 64
+  },
+  "stats": {
+    "ips": 3,
+    "domains": 61,
+    "urls": 0,
+    "hashes": 0
+  },
+  "iocs": {
+    "ips": [
+      {
+        "value": "162.243.103.246",
+        "type": "ip",
+        "source": "feodotracker",
+        "threat": "Emotet"
+      },
+      {
+        "value": "34.204.119.63",
+        "type": "ip",
+        "source": "feodotracker",
+        "threat": "QakBot"
+      },
+      {
+        "value": "172.232.59.14",
+        "type": "ip",
+        "source": "feodotracker",
+        "threat": "QakBot"
+      }
+    ],
+    "domains": [
+      {
+        "value": "seha.org.sa",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "Tengu",
+        "context": "victim_domain"
+      },
+      {
+        "value": "arabfalcons.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "LockBit5",
+        "context": "victim_domain"
+      },
+      {
+        "value": "soeuae.ae",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "LockBit5",
+        "context": "victim_domain"
+      },
+      {
+        "value": "aqm.com.sa",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "Clop",
+        "context": "victim_domain"
+      },
+      {
+        "value": "aljomaihauto.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "Clop",
+        "context": "victim_domain"
+      },
+      {
+        "value": "ajmanre.gov.ae",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "Flocker",
+        "context": "victim_domain"
+      },
+      {
+        "value": "mttexpertises.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "incransom",
+        "context": "victim_domain"
+      },
+      {
+        "value": "e.gov.ae",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "flocker",
+        "context": "victim_domain"
+      },
+      {
+        "value": "lts.com.vn",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "flocker",
+        "context": "victim_domain"
+      },
+      {
+        "value": "devimco.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "metaencryptor",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.kcac.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "blacksuit",
+        "context": "victim_domain"
+      },
+      {
+        "value": "trustgrp.ae",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "flocker",
+        "context": "victim_domain"
+      },
+      {
+        "value": "sitro.com.au",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "incransom",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.innsofaurora.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "blacksuit",
+        "context": "victim_domain"
+      },
+      {
+        "value": "metromont.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "blacksuit",
+        "context": "victim_domain"
+      },
+      {
+        "value": "s.com.vn",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "flocker",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.iptelecom.at",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "ciphbit",
+        "context": "victim_domain"
+      },
+      {
+        "value": "allstarflooring.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "embargo",
+        "context": "victim_domain"
+      },
+      {
+        "value": "diyar.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.davisdavisco.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "incransom",
+        "context": "victim_domain"
+      },
+      {
+        "value": "nissi-beach.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "incransom",
+        "context": "victim_domain"
+      },
+      {
+        "value": "flysaa.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "incransom",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.colemanmaterials.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.philsmithauto.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "atlplasticsurgeon.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "jtalleycorp.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "southernavionics.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "industrialdynamics.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.dermatologysolutions.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "net-move.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "altara.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.condista.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.texlaenergy.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.precisiontextiles-usa.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "dac-law.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "millercaggiano.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.harrissteelco.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "kraftkisarna.se",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "pryor-morrow.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "pratthomes.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.setpointsystems.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "www.irisid.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "citrusmagic.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "statesmanbiz.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "dragonforce",
+        "context": "victim_domain"
+      },
+      {
+        "value": "hennessyfunds.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lockbit3",
+        "context": "victim_domain"
+      },
+      {
+        "value": "vzlom7may.omg",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lockbit3",
+        "context": "victim_domain"
+      },
+      {
+        "value": "ehlers-inc.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lockbit3",
+        "context": "victim_domain"
+      },
+      {
+        "value": "lan.hirevelocity.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      },
+      {
+        "value": "cabinc.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      },
+      {
+        "value": "valedolobo.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "braincipher",
+        "context": "victim_domain"
+      },
+      {
+        "value": "iycsa.com.co",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "braincipher",
+        "context": "victim_domain"
+      },
+      {
+        "value": "ddecor.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "braincipher",
+        "context": "victim_domain"
+      },
+      {
+        "value": "pdcm.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lockbit3",
+        "context": "victim_domain"
+      },
+      {
+        "value": "kll-law.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lockbit3",
+        "context": "victim_domain"
+      },
+      {
+        "value": "arc-com.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lockbit3",
+        "context": "victim_domain"
+      },
+      {
+        "value": "southernagllc.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      },
+      {
+        "value": "corporateflight.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      },
+      {
+        "value": "shgcpa.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      },
+      {
+        "value": "friscochamber.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      },
+      {
+        "value": "greatplainstransport.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      },
+      {
+        "value": "pay4freight.com",
+        "type": "domain",
+        "source": "gulfcyber_ransomware",
+        "threat": "lynx",
+        "context": "victim_domain"
+      }
+    ],
+    "urls": [],
+    "hashes": []
+  }
+}
