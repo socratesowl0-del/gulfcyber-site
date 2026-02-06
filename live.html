@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Threats | GulfCyber.io</title>
-    <meta name="description" content="Real-time ransomware threats targeting GCC organizations with countdown timers.">
+    <meta name="description" content="Real-time ransomware threats targeting GCC organizations with actual countdown timers.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -17,6 +17,10 @@
             background: linear-gradient(90deg, #1a0000, #0a0a0a);
             padding: 30px;
             border-bottom: 1px solid #ff000033;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .header h1 {
             font-size: 2em;
@@ -35,6 +39,11 @@
         @keyframes pulse {
             0%, 100% { opacity: 1; box-shadow: 0 0 10px #ff0000; }
             50% { opacity: 0.5; box-shadow: 0 0 20px #ff0000; }
+        }
+        .last-updated {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 10px;
         }
         .container {
             max-width: 1200px;
@@ -59,7 +68,16 @@
         }
         .threat-card.critical {
             border-color: #ff0000;
-            box-shadow: 0 0 20px rgba(255,0,0,0.3);
+            box-shadow: 0 0 20px rgba(255,0,0,0.4);
+            animation: critical-pulse 2s infinite;
+        }
+        @keyframes critical-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255,0,0,0.4); }
+            50% { box-shadow: 0 0 30px rgba(255,0,0,0.6); }
+        }
+        .threat-card.expired {
+            opacity: 0.6;
+            border-color: #444;
         }
         .threat-header {
             background: linear-gradient(90deg, #ff0000, #aa0000);
@@ -67,6 +85,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+        .threat-card.expired .threat-header {
+            background: linear-gradient(90deg, #444, #333);
         }
         .threat-group {
             font-weight: bold;
@@ -87,6 +108,7 @@
             font-size: 1.3em;
             margin-bottom: 10px;
             color: #fff;
+            word-break: break-word;
         }
         .victim-meta {
             color: #888;
@@ -129,6 +151,11 @@
             color: #666;
             text-transform: uppercase;
         }
+        .expired-label {
+            color: #888;
+            font-size: 1.2em;
+            padding: 20px;
+        }
         .stats-bar {
             display: flex;
             gap: 30px;
@@ -169,12 +196,20 @@
             font-size: 0.85em;
             color: #666;
         }
+        .section-title {
+            font-size: 1.3em;
+            color: #888;
+            margin: 30px 0 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="container">
+        <div class="header-content">
             <h1><span class="live-dot"></span> Live Ransomware Threats - GCC Region</h1>
+            <div class="last-updated" id="lastUpdated">Loading...</div>
         </div>
     </div>
     
@@ -182,93 +217,110 @@
         <a href="index.html" class="back-link">← Back to Dashboard</a>
         
         <div class="stats-bar" id="stats"></div>
-        <div class="threat-grid" id="threats"></div>
+        
+        <div id="active-section">
+            <div class="threat-grid" id="threats"></div>
+        </div>
+        
+        <div id="expired-section" style="display:none">
+            <h3 class="section-title">⏰ Recently Expired</h3>
+            <div class="threat-grid" id="expired-threats"></div>
+        </div>
         
         <div class="disclaimer">
-            ⚠️ Data sourced from ransomware leak sites and threat intelligence feeds. 
-            Countdown timers are estimates based on threat actor patterns. 
-            Organizations should verify independently and initiate incident response.
+            ⚠️ <strong>Real data from ransomware leak sites.</strong> 
+            Deadlines calculated from discovery date + threat actor patterns.
+            Organizations listed should verify status and initiate incident response.
         </div>
     </div>
 
     <script>
+        let threatData = null;
+        
         async function loadThreats() {
             try {
-                const res = await fetch('data.json');
-                const data = await res.json();
-                renderThreats(data);
+                const res = await fetch('live-threats.json');
+                threatData = await res.json();
+                renderThreats();
+                
+                // Update every minute
+                setInterval(updateCountdowns, 1000);
             } catch (e) {
-                document.getElementById('threats').innerHTML = '<p>Failed to load threat data</p>';
+                console.error(e);
+                document.getElementById('threats').innerHTML = '<p>Failed to load - try refreshing</p>';
             }
         }
 
-        function renderThreats(data) {
-            const victims = data.victims || [];
-            const recent = victims.slice(0, 20); // Show 20 most recent
+        function renderThreats() {
+            const data = threatData;
+            const threats = data.threats || [];
+            const expired = data.recently_expired || [];
+            
+            // Update header
+            document.getElementById('lastUpdated').textContent = 
+                `Last updated: ${new Date(data.updated).toLocaleString()}`;
             
             // Stats
-            const gccCount = {
-                'Saudi Arabia': 0, 'UAE': 0, 'Qatar': 0, 
-                'Kuwait': 0, 'Bahrain': 0, 'Oman': 0
-            };
-            victims.forEach(v => {
-                if (gccCount.hasOwnProperty(v.country)) {
-                    gccCount[v.country]++;
-                }
-            });
-            
-            const totalGCC = Object.values(gccCount).reduce((a,b) => a+b, 0);
-            const last30Days = victims.filter(v => {
-                const d = new Date(v.date);
-                return (Date.now() - d.getTime()) < 30*24*60*60*1000;
-            }).length;
+            const activeCount = threats.filter(t => !t.is_expired).length;
+            const criticalCount = threats.filter(t => t.hours_remaining < 48 && !t.is_expired).length;
             
             document.getElementById('stats').innerHTML = `
                 <div class="stat">
-                    <div class="stat-value">${totalGCC}</div>
-                    <div class="stat-label">Total GCC Victims</div>
+                    <div class="stat-value">${activeCount}</div>
+                    <div class="stat-label">Active Threats</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">${last30Days}</div>
-                    <div class="stat-label">Last 30 Days</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">${Object.keys(data.groups || {}).length}</div>
-                    <div class="stat-label">Active Groups</div>
+                    <div class="stat-value" style="color: ${criticalCount > 0 ? '#ff0000' : '#ff4444'}">${criticalCount}</div>
+                    <div class="stat-label">Critical (&lt;48h)</div>
                 </div>
             `;
             
-            if (recent.length === 0) {
+            if (threats.length === 0) {
                 document.getElementById('threats').innerHTML = `
                     <div class="no-threats">
                         <h2>✅ No Active Threats</h2>
-                        <p>No recent ransomware activity detected in GCC region</p>
+                        <p>No active ransomware deadlines for GCC region</p>
                     </div>
                 `;
                 return;
             }
             
-            document.getElementById('threats').innerHTML = recent.map((v, i) => {
-                // Generate random deadline (for demo - in reality would come from threat actor)
-                const hoursLeft = Math.floor(Math.random() * 168) + 24; // 24-192 hours
-                const deadline = new Date(Date.now() + hoursLeft * 60 * 60 * 1000);
-                const isCritical = hoursLeft < 48;
-                
-                return `
-                    <div class="threat-card ${isCritical ? 'critical' : ''}" data-deadline="${deadline.getTime()}">
-                        <div class="threat-header">
-                            <span class="threat-group">${v.group || 'Unknown'}</span>
-                            <span class="threat-tag">${v.country || 'GCC'}</span>
+            // Render active threats
+            const activeThreats = threats.filter(t => !t.is_expired);
+            document.getElementById('threats').innerHTML = activeThreats.map((t, i) => 
+                renderThreatCard(t, i, false)
+            ).join('');
+            
+            // Render expired if any
+            if (expired.length > 0) {
+                document.getElementById('expired-section').style.display = 'block';
+                document.getElementById('expired-threats').innerHTML = expired.map((t, i) => 
+                    renderThreatCard(t, i + 100, true)
+                ).join('');
+            }
+        }
+        
+        function renderThreatCard(t, idx, isExpired) {
+            const isCritical = t.hours_remaining < 48 && !isExpired;
+            
+            return `
+                <div class="threat-card ${isCritical ? 'critical' : ''} ${isExpired ? 'expired' : ''}" 
+                     data-deadline="${t.deadline_timestamp}" id="card-${idx}">
+                    <div class="threat-header">
+                        <span class="threat-group">${t.group || 'Unknown'}</span>
+                        <span class="threat-tag">${t.country || 'GCC'}</span>
+                    </div>
+                    <div class="threat-body">
+                        <div class="victim-name">${t.name || 'Unknown Organization'}</div>
+                        <div class="victim-meta">
+                            📅 Discovered: ${t.discovered ? t.discovered.split('T')[0] : 'Unknown'}<br>
+                            ${t.sector ? `🏢 Sector: ${t.sector}` : ''}
                         </div>
-                        <div class="threat-body">
-                            <div class="victim-name">${v.name || 'Unknown Organization'}</div>
-                            <div class="victim-meta">
-                                📅 Discovered: ${v.date || 'Unknown'}<br>
-                                🏢 Sector: ${v.sector || 'Unknown'}
-                            </div>
-                            <div class="countdown">
-                                <div class="countdown-label">⚠️ Estimated Data Leak In</div>
-                                <div class="countdown-timer" id="timer-${i}">
+                        ${isExpired ? 
+                            '<div class="expired-label">⏰ Deadline passed - Data likely leaked</div>' :
+                            `<div class="countdown">
+                                <div class="countdown-label">⚠️ Data Leak Deadline</div>
+                                <div class="countdown-timer" id="timer-${idx}">
                                     <div class="countdown-unit">
                                         <div class="countdown-number days">--</div>
                                         <div class="countdown-text">Days</div>
@@ -281,35 +333,42 @@
                                         <div class="countdown-number mins">--</div>
                                         <div class="countdown-text">Mins</div>
                                     </div>
+                                    <div class="countdown-unit">
+                                        <div class="countdown-number secs">--</div>
+                                        <div class="countdown-text">Secs</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>`
+                        }
                     </div>
-                `;
-            }).join('');
-            
-            // Start countdown timers
-            updateCountdowns();
-            setInterval(updateCountdowns, 60000);
+                </div>
+            `;
         }
         
         function updateCountdowns() {
-            document.querySelectorAll('.threat-card').forEach((card, i) => {
+            document.querySelectorAll('.threat-card:not(.expired)').forEach(card => {
                 const deadline = parseInt(card.dataset.deadline);
                 const now = Date.now();
                 const diff = deadline - now;
+                
+                const idx = card.id.replace('card-', '');
+                const timer = document.getElementById(`timer-${idx}`);
+                
+                if (!timer) return;
                 
                 if (diff > 0) {
                     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const secs = Math.floor((diff % (1000 * 60)) / 1000);
                     
-                    const timer = document.getElementById(`timer-${i}`);
-                    if (timer) {
-                        timer.querySelector('.days').textContent = days.toString().padStart(2, '0');
-                        timer.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
-                        timer.querySelector('.mins').textContent = mins.toString().padStart(2, '0');
-                    }
+                    timer.querySelector('.days').textContent = days.toString().padStart(2, '0');
+                    timer.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+                    timer.querySelector('.mins').textContent = mins.toString().padStart(2, '0');
+                    timer.querySelector('.secs').textContent = secs.toString().padStart(2, '0');
+                } else {
+                    timer.innerHTML = '<div class="expired-label">⏰ EXPIRED</div>';
+                    card.classList.add('expired');
                 }
             });
         }

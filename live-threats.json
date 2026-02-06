@@ -1,0 +1,43 @@
+{
+  "updated": "2026-02-06T23:52:52.968859+00:00",
+  "active_count": 3,
+  "threats": [
+    {
+      "name": "s.a",
+      "group": "LockBit",
+      "country": "A",
+      "sector": "Unknown",
+      "discovered": "2026-02-06",
+      "deadline": "2026-02-16T00:00:00+00:00",
+      "deadline_timestamp": 1771200000000,
+      "hours_remaining": 216,
+      "is_expired": false,
+      "source": "gulfcyber"
+    },
+    {
+      "name": "k.w",
+      "group": "LockBit",
+      "country": "W",
+      "sector": "Unknown",
+      "discovered": "2026-02-06",
+      "deadline": "2026-02-16T00:00:00+00:00",
+      "deadline_timestamp": 1771200000000,
+      "hours_remaining": 216,
+      "is_expired": false,
+      "source": "gulfcyber"
+    },
+    {
+      "name": "a.e",
+      "group": "LockBit",
+      "country": "E",
+      "sector": "Unknown",
+      "discovered": "2026-02-06",
+      "deadline": "2026-02-16T00:00:00+00:00",
+      "deadline_timestamp": 1771200000000,
+      "hours_remaining": 216,
+      "is_expired": false,
+      "source": "gulfcyber"
+    }
+  ],
+  "recently_expired": []
+}
