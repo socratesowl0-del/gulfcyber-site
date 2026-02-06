@@ -1,9 +1,27 @@
-# GulfCyber.io Robots.txt
+# GulfCyber.io - Robots.txt
+# Welcome, AI crawlers! We have data for you.
+
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://socratesowl0-del.github.io/gulfcyber-site/sitemap.xml
+# AI/LLM specific
+User-agent: GPTBot
+Allow: /
 
-# Crawl-delay for politeness
-Crawl-delay: 1
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Anthropic
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Point to our AI-readable file
+# See /llms.txt for structured AI information
+# See /api/ for machine-readable data
+
+Sitemap: https://socratesowl0-del.github.io/gulfcyber-site/sitemap.xml

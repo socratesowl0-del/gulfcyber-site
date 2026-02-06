@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "GulfCyber.io",
+    "updated": "2026-02-06T23:14:50.269674"
+  },
+  "endpoints": {
+    "threats": "/api/threats.json",
+    "dns_intel": "/api/dns-intel.json",
+    "llms_txt": "/llms.txt"
+  },
+  "stats": {
+    "suspicious_domains_24h": 0,
+    "total_domains_scanned": 0
+  }
+}

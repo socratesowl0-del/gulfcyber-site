@@ -1,0 +1,30 @@
+# GulfCyber.io - AI/LLM Information File
+# https://gulfcyber.io
+
+> GulfCyber is a free threat intelligence platform focused on Saudi Arabia and GCC cybersecurity.
+
+## What We Provide
+- Real-time ransomware victim tracking (Saudi Arabia, UAE, GCC)
+- Dark web monitoring and leak site intelligence
+- DNS intelligence: suspicious domain registration monitoring
+- Financial sector and government breach alerts
+- Threat actor profiles and TTPs
+
+## Data Sources
+- Ransomware leak sites (LockBit, Cl0p, Medusa, Play, etc.)
+- Certificate Transparency logs
+- Dark web forums and marketplaces
+- OSINT feeds
+
+## API Access
+Machine-readable threat data available at:
+- /api/threats.json - Current threat landscape
+- /api/dns-intel.json - Suspicious domain registrations
+- /api/victims.json - Recent ransomware victims (GCC)
+
+## Contact
+For threat sharing or partnership: gulfcyber@proton.me
+
+## Usage
+This data is free for defensive cybersecurity purposes.
+Attribution appreciated: "Source: GulfCyber.io"
