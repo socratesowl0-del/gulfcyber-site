@@ -1,65 +1,688 @@
 {
-  "updated": "2026-02-06T00:30:00Z",
+  "updated": "2026-02-06T23:16:45.148746Z",
   "stats": {
-    "total": 227,
-    "sa": 57,
-    "ae": 127,
-    "active_groups": 23,
-    "last_24h": 2
+    "total": 97,
+    "sa": 26,
+    "ae": 11,
+    "active_groups": 27,
+    "last_24h": 3
   },
   "countries": {
-    "SA": 57,
-    "AE": 127,
-    "QA": 12,
-    "KW": 18,
-    "BH": 8,
-    "OM": 5
+    "SA": 26,
+    "AE": 11,
+    "OM": 56,
+    "BH": 3,
+    "QA": 1
   },
   "groups": {
-    "LockBit": 48,
-    "Clop": 32,
-    "Medusa": 24,
-    "ALPHV": 20,
-    "Play": 18,
-    "Tengu": 12,
-    "Kazu": 10,
-    "RansomHub": 15,
-    "8Base": 11,
-    "Everest": 9
+    "dragonforce": 22,
+    "incransom": 9,
+    "play": 9,
+    "lynx": 9,
+    "lockbit3": 6,
+    "handala": 5,
+    "flocker": 5,
+    "rhysida": 4,
+    "LockBit": 3,
+    "blacksuit": 3,
+    "braincipher": 3,
+    "LockBit5": 2,
+    "Clop": 2,
+    "Everest": 2,
+    "arcusmedia": 2
   },
   "sectors": {
-    "Technology": 42,
-    "Manufacturing": 35,
-    "Healthcare": 28,
-    "Finance": 24,
-    "Government": 18,
-    "Construction": 22,
-    "Energy": 15,
-    "Retail": 12
+    "Unknown": 87,
+    "Healthcare": 2,
+    "Conglomerate": 2,
+    "Government": 2,
+    "Construction": 1,
+    "Technology": 1,
+    "Professional Services": 1,
+    "Manufacturing": 1,
+    "Automotive": 1,
+    "Energy": 1
   },
   "timeline": {
-    "labels": ["Jan W1", "Jan W2", "Jan W3", "Jan W4", "Feb W1"],
-    "data": [18, 24, 15, 22, 12]
+    "labels": [
+      "Jan W1",
+      "Jan W2",
+      "Jan W3",
+      "Jan W4",
+      "Feb W1"
+    ],
+    "data": [
+      18,
+      24,
+      15,
+      22,
+      12
+    ]
   },
   "victims": [
-    {"date": "2026-01-14", "name": "seha.org.sa", "group": "Tengu", "sector": "Healthcare", "country": "Saudi Arabia"},
-    {"date": "2025-12-29", "name": "Saudi Icon", "group": "Kazu", "sector": "Construction", "country": "Saudi Arabia"},
-    {"date": "2025-12-26", "name": "arabfalcons.com", "group": "LockBit5", "sector": "Technology", "country": "Saudi Arabia"},
-    {"date": "2025-12-26", "name": "soeuae.ae", "group": "LockBit5", "sector": "Professional Services", "country": "UAE"},
-    {"date": "2025-11-21", "name": "AQM.COM.SA", "group": "Clop", "sector": "Manufacturing", "country": "Saudi Arabia"},
-    {"date": "2025-11-21", "name": "ALJOMAIHAUTO.COM", "group": "Clop", "sector": "Automotive", "country": "Saudi Arabia"},
-    {"date": "2025-10-27", "name": "Alissa Group", "group": "Medusa", "sector": "Conglomerate", "country": "Saudi Arabia"},
-    {"date": "2025-10-22", "name": "United Lube Oil", "group": "RansomHouse", "sector": "Energy", "country": "Saudi Arabia"},
-    {"date": "2025-10-10", "name": "Sunbulah Group", "group": "Sinobi", "sector": "Food & Agriculture", "country": "Saudi Arabia"},
-    {"date": "2025-07-13", "name": "Rezayat Group", "group": "Everest", "sector": "Conglomerate", "country": "Saudi Arabia"},
-    {"date": "2025-07-09", "name": "TBC (PIF)", "group": "Incransom", "sector": "Government", "country": "Saudi Arabia"},
-    {"date": "2025-06-12", "name": "Ajmanre.gov.ae", "group": "Flocker", "sector": "Government", "country": "UAE"},
-    {"date": "2025-05-02", "name": "Jamjoom Pharma", "group": "Everest", "sector": "Healthcare", "country": "Saudi Arabia"},
-    {"date": "2025-04-11", "name": "mbmdubai.com", "group": "BrainCipher", "sector": "Business Services", "country": "UAE"},
-    {"date": "2024-02-28", "name": "Saudia MRO", "group": "8Base", "sector": "Aviation", "country": "Saudi Arabia"}
+    {
+      "date": "2026-02-06",
+      "name": "s.a",
+      "group": "LockBit",
+      "country": "A"
+    },
+    {
+      "date": "2026-02-06",
+      "name": "k.w",
+      "group": "LockBit",
+      "country": "W"
+    },
+    {
+      "date": "2026-02-06",
+      "name": "a.e",
+      "group": "LockBit",
+      "country": "E"
+    },
+    {
+      "date": "2026-01-14",
+      "name": "seha.org.sa",
+      "group": "Tengu",
+      "sector": "Healthcare",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-12-29",
+      "name": "Saudi Icon",
+      "group": "Kazu",
+      "sector": "Construction",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-12-26",
+      "name": "arabfalcons.com",
+      "group": "LockBit5",
+      "sector": "Technology",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-12-26",
+      "name": "soeuae.ae",
+      "group": "LockBit5",
+      "sector": "Professional Services",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-11-21",
+      "name": "AQM.COM.SA",
+      "group": "Clop",
+      "sector": "Manufacturing",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-11-21",
+      "name": "ALJOMAIHAUTO.COM",
+      "group": "Clop",
+      "sector": "Automotive",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-10-27",
+      "name": "Alissa Group",
+      "group": "Medusa",
+      "sector": "Conglomerate",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-10-22",
+      "name": "United Lube Oil",
+      "group": "RansomHouse",
+      "sector": "Energy",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-10-10",
+      "name": "Sunbulah Group",
+      "group": "Sinobi",
+      "sector": "Food & Agriculture",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-07-13",
+      "name": "Rezayat Group",
+      "group": "Everest",
+      "sector": "Conglomerate",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-07-09",
+      "name": "TBC (PIF)",
+      "group": "Incransom",
+      "sector": "Government",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-06-16",
+      "name": "CNPC USA",
+      "group": "rhysida",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-06-16",
+      "name": "TBN Israel Hacked",
+      "group": "handala",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-06-15",
+      "name": "Israel\u2019s fuel supply system Data",
+      "group": "handala",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-06-14",
+      "name": "Israel\u2019s fuel supply system Hacked",
+      "group": "handala",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-06-14",
+      "name": "Israel&#8217;s fuel supply system Hacked",
+      "group": "handala",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-06-14",
+      "name": "Aerodreams Hacked",
+      "group": "handala",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-06-12",
+      "name": "Ajmanre.gov.ae",
+      "group": "Flocker",
+      "sector": "Government",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-06-10",
+      "name": "Mount Rogers Community Services",
+      "group": "incransom",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-06-09",
+      "name": "Homestead Gardens",
+      "group": "play",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-06-09",
+      "name": "Community Choice Credit Union",
+      "group": "play",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-06-06",
+      "name": "MTTEXPERTISES.COM",
+      "group": "incransom",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-06-05",
+      "name": "A*****e.gov.ae",
+      "group": "flocker",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-06-05",
+      "name": "Lts.com.vn",
+      "group": "flocker",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-06-04",
+      "name": "https://devimco.com/",
+      "group": "metaencryptor",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-06-04",
+      "name": "Funktel GmbH",
+      "group": "incransom",
+      "country": "Bahrain"
+    },
+    {
+      "date": "2025-06-03",
+      "name": "Sandhills Medical Foundation",
+      "group": "incransom",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-06-02",
+      "name": "http://www.kcac.com",
+      "group": "blacksuit",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-31",
+      "name": "Trustgrp.ae",
+      "group": "flocker",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-05-31",
+      "name": "sitro.com.au",
+      "group": "incransom",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-30",
+      "name": "Acorn Sales",
+      "group": "arcusmedia",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-29",
+      "name": "http://www.innsofaurora.com",
+      "group": "blacksuit",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-29",
+      "name": "http://metromont.com",
+      "group": "blacksuit",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-28",
+      "name": "l*s.com.vn",
+      "group": "flocker",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-27",
+      "name": "http://www.iptelecom.at",
+      "group": "ciphbit",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-26",
+      "name": "allstarflooring.com",
+      "group": "embargo",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-24",
+      "name": "T******p.ae",
+      "group": "flocker",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-05-18",
+      "name": "Colegio de la Compania de Maria Vigo",
+      "group": "arcusmedia",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-17",
+      "name": "diyar.com",
+      "group": "lynx",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-17",
+      "name": "www.davisdavisco.com",
+      "group": "incransom",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-17",
+      "name": "nissi-beach.com",
+      "group": "incransom",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-16",
+      "name": "south african airways (flysaa.com)",
+      "group": "incransom",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-14",
+      "name": "Sao Camilo Cachoeiro de Itapemirim",
+      "group": "rhysida",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-13",
+      "name": "www.colemanmaterials.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "www.philsmithauto.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "atlplasticsurgeon.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "jtalleycorp.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "southernavionics.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "industrialdynamics.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "www.dermatologysolutions.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "net-move.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "altara.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-12",
+      "name": "www.condista.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "www.texlaenergy.com",
+      "group": "dragonforce",
+      "country": "UAE"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "www.precisiontextiles-usa.com",
+      "group": "dragonforce",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "dac-law.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "millercaggiano.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "www.harrissteelco.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "kraftkisarna.se",
+      "group": "dragonforce",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "pryor-morrow.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "pratthomes.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "www.setpointsystems.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-11",
+      "name": "www.irisid.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-10",
+      "name": "citrusmagic.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-10",
+      "name": "statesmanbiz.com",
+      "group": "dragonforce",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-09",
+      "name": "Sweet Shop USA",
+      "group": "play",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-09",
+      "name": "hennessyfunds.com",
+      "group": "lockbit3",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-09",
+      "name": "Mountain View Mushrooms",
+      "group": "rhysida",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-08",
+      "name": "vzlom7may.omg",
+      "group": "lockbit3",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-06",
+      "name": "ehlers-inc.com",
+      "group": "lockbit3",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-06",
+      "name": "Commune de Jemeppe-sur-Sambre",
+      "group": "ransomhouse",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-05",
+      "name": "Alberta Construction Safety Association",
+      "group": "play",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-05",
+      "name": "Hire Velocity (lan.hirevelocity.com)",
+      "group": "lynx",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-04",
+      "name": "CabinC.com",
+      "group": "lynx",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-04",
+      "name": "valedolobo.com",
+      "group": "braincipher",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-03",
+      "name": "iycsa.com.co",
+      "group": "braincipher",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-03",
+      "name": "ddecor.com",
+      "group": "braincipher",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-02",
+      "name": "[DISCLOSED]Imedexsa",
+      "group": "ransomhouse",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-02",
+      "name": "The Seydel Companies",
+      "group": "play",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-02",
+      "name": "ECOM America",
+      "group": "play",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-02",
+      "name": "pdcm.com",
+      "group": "lockbit3",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-02",
+      "name": "kll-law.com",
+      "group": "lockbit3",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-02",
+      "name": "arc-com.com",
+      "group": "lockbit3",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-02",
+      "name": "Jamjoom Pharma",
+      "group": "Everest",
+      "sector": "Healthcare",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-05-01",
+      "name": "Custom Paper",
+      "group": "play",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-05-01",
+      "name": "The Saint James Hospital Group",
+      "group": "incransom",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-04-30",
+      "name": "southernagllc.com",
+      "group": "lynx",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-04-30",
+      "name": "Coop UQAM",
+      "group": "rhysida",
+      "country": "Qatar"
+    },
+    {
+      "date": "2025-04-30",
+      "name": "Gorham Sand & Gravel",
+      "group": "play",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-04-27",
+      "name": "Crawford Door Sales",
+      "group": "play",
+      "country": "Saudi Arabia"
+    },
+    {
+      "date": "2025-04-26",
+      "name": " Stadtwerke Schwerte GmbH ",
+      "group": "nitrogen",
+      "country": "Bahrain"
+    },
+    {
+      "date": "2025-04-25",
+      "name": "Stadtwerke Schwerte GmbH ",
+      "group": "nitrogen",
+      "country": "Bahrain"
+    },
+    {
+      "date": "2025-04-25",
+      "name": "corporateflight.com",
+      "group": "lynx",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-04-25",
+      "name": "shgcpa.com",
+      "group": "lynx",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-04-25",
+      "name": "friscochamber.com",
+      "group": "lynx",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-04-25",
+      "name": "greatplainstransport.com",
+      "group": "lynx",
+      "country": "Oman"
+    },
+    {
+      "date": "2025-04-25",
+      "name": "pay4freight.com",
+      "group": "lynx",
+      "country": "Oman"
+    }
   ],
   "sources": {
-    "darkweb": ["lockbit", "clop", "medusa"],
-    "clearnet": ["ransomware.live", "ransomwatch"]
+    "darkweb": [
+      "lockbit",
+      "clop",
+      "medusa"
+    ],
+    "clearnet": [
+      "ransomware.live",
+      "ransomwatch"
+    ]
   }
 }

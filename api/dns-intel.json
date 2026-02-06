@@ -1,11 +1,11 @@
 {
   "meta": {
     "source": "GulfCyber.io",
-    "updated": "2026-02-06T23:14:50.269567",
+    "updated": "2026-02-06T23:17:02.016602",
     "description": "Suspicious Domain Registration Intelligence"
   },
   "data": {
-    "scan_time": "2026-02-06T23:14:20.568113+00:00",
+    "scan_time": "2026-02-06T23:17:01.981468+00:00",
     "total_scanned": 0,
     "suspicious_count": 0,
     "suspicious_domains": [],
