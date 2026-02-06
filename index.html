@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GulfCyber.io | GCC Ransomware & Threat Tracker</title>
+    <meta name="description" content="Real-time ransomware and cyber threat tracking for Saudi Arabia, UAE, and GCC region. Stay informed about the latest attacks.">
+    <meta name="keywords" content="ransomware, Saudi Arabia, UAE, GCC, cyber security, threat intelligence, hacking, data breach">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --surface2: #1a1a25;
+            --accent: #00ff88;
+            --accent2: #00d4ff;
+            --danger: #ff4757;
+            --warning: #ffa502;
+            --text: #e4e4e7;
+            --muted: #71717a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header {
+            border-bottom: 1px solid var(--surface2);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(10,10,15,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .logo span { color: var(--text); }
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px 0;
+        }
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--surface2);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .stat-card.danger .number { color: var(--danger); }
+        .stat-card.warning .number { color: var(--warning); }
+        .stat-card .label {
+            color: var(--muted);
+            margin-top: 10px;
+        }
+        
+        /* Live Feed */
+        .feed-section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--danger);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .feed {
+            background: var(--surface);
+            border: 1px solid var(--surface2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .feed-item {
+            padding: 20px;
+            border-bottom: 1px solid var(--surface2);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 20px;
+            align-items: center;
+        }
+        .feed-item:last-child { border-bottom: none; }
+        .feed-item:hover { background: var(--surface2); }
+        .feed-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+        .feed-content h4 { margin-bottom: 5px; }
+        .feed-content p { color: var(--muted); font-size: 0.9rem; }
+        .feed-tag {
+            background: var(--danger);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .feed-tag.lockbit { background: #e74c3c; }
+        .feed-tag.clop { background: #9b59b6; }
+        .feed-tag.medusa { background: #3498db; }
+        .feed-tag.tengu { background: #e67e22; }
+        
+        /* Countries */
+        .countries {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 40px 0;
+        }
+        .country-card {
+            background: var(--surface);
+            border: 1px solid var(--surface2);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .country-card .flag { font-size: 2rem; margin-bottom: 10px; }
+        .country-card .count { font-size: 1.5rem; font-weight: 700; color: var(--danger); }
+        .country-card .name { color: var(--muted); font-size: 0.9rem; }
+        
+        /* Ad Space */
+        .ad-space {
+            background: var(--surface2);
+            border: 2px dashed var(--muted);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            color: var(--muted);
+            margin: 40px 0;
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--surface2);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+            color: var(--muted);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .header-content { flex-direction: column; gap: 15px; }
+            nav a { margin: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Gulf<span>Cyber</span>.io</div>
+            <nav>
+                <a href="#threats">Live Threats</a>
+                <a href="#stats">Statistics</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>GCC Cyber Threat Intelligence</h1>
+            <p>Real-time tracking of ransomware attacks and data breaches targeting Saudi Arabia, UAE, and the Gulf region.</p>
+        </div>
+    </section>
+
+    <section class="container" id="stats">
+        <div class="stats">
+            <div class="stat-card danger">
+                <div class="number">57</div>
+                <div class="label">Saudi Arabia Victims</div>
+            </div>
+            <div class="stat-card danger">
+                <div class="number">127</div>
+                <div class="label">UAE Victims</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="number">23</div>
+                <div class="label">Active Threat Groups</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">24/7</div>
+                <div class="label">Monitoring</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container feed-section" id="threats">
+        <h2 class="section-title"><span class="live-dot"></span> Live Threat Feed</h2>
+        <div class="feed">
+            <div class="feed-item">
+                <div class="feed-date">2026-01-14</div>
+                <div class="feed-content">
+                    <h4>seha.org.sa</h4>
+                    <p>Healthcare organization in Qassim region - Saudi Arabia</p>
+                </div>
+                <span class="feed-tag tengu">TENGU</span>
+            </div>
+            <div class="feed-item">
+                <div class="feed-date">2025-12-29</div>
+                <div class="feed-content">
+                    <h4>Saudi Icon</h4>
+                    <p>Construction and design company - Saudi Arabia</p>
+                </div>
+                <span class="feed-tag">KAZU</span>
+            </div>
+            <div class="feed-item">
+                <div class="feed-date">2025-12-26</div>
+                <div class="feed-content">
+                    <h4>arabfalcons.com</h4>
+                    <p>Technology products manufacturer - Saudi Arabia</p>
+                </div>
+                <span class="feed-tag lockbit">LOCKBIT5</span>
+            </div>
+            <div class="feed-item">
+                <div class="feed-date">2025-12-26</div>
+                <div class="feed-content">
+                    <h4>soeuae.ae</h4>
+                    <p>Society of Engineers - UAE</p>
+                </div>
+                <span class="feed-tag lockbit">LOCKBIT5</span>
+            </div>
+            <div class="feed-item">
+                <div class="feed-date">2025-11-21</div>
+                <div class="feed-content">
+                    <h4>ALJOMAIHAUTO.COM</h4>
+                    <p>Abdul Latif Jameel Motors - Saudi Arabia</p>
+                </div>
+                <span class="feed-tag clop">CLOP</span>
+            </div>
+            <div class="feed-item">
+                <div class="feed-date">2025-10-27</div>
+                <div class="feed-content">
+                    <h4>Alissa Group</h4>
+                    <p>Textiles and food conglomerate - Saudi Arabia</p>
+                </div>
+                <span class="feed-tag medusa">MEDUSA</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="ad-space">
+            <!-- Google AdSense Placeholder -->
+            Advertisement Space<br>
+            <small>Contact us for advertising opportunities</small>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Victims by Country</h2>
+        <div class="countries">
+            <div class="country-card">
+                <div class="flag">🇸🇦</div>
+                <div class="count">57</div>
+                <div class="name">Saudi Arabia</div>
+            </div>
+            <div class="country-card">
+                <div class="flag">🇦🇪</div>
+                <div class="count">127</div>
+                <div class="name">UAE</div>
+            </div>
+            <div class="country-card">
+                <div class="flag">🇶🇦</div>
+                <div class="count">12</div>
+                <div class="name">Qatar</div>
+            </div>
+            <div class="country-card">
+                <div class="flag">🇰🇼</div>
+                <div class="count">18</div>
+                <div class="name">Kuwait</div>
+            </div>
+            <div class="country-card">
+                <div class="flag">🇧🇭</div>
+                <div class="count">8</div>
+                <div class="name">Bahrain</div>
+            </div>
+            <div class="country-card">
+                <div class="flag">🇴🇲</div>
+                <div class="count">5</div>
+                <div class="name">Oman</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="about">
+        <div class="ad-space">
+            <!-- Second Ad Space -->
+            Advertisement Space
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p><strong>GulfCyber.io</strong> — Independent Threat Intelligence</p>
+            <p style="margin-top: 15px;">
+                Contact: <a href="mailto:socratesowl0@gmail.com">socratesowl0@gmail.com</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.85rem;">
+                Data sourced from public ransomware leak sites. For educational and defensive purposes only.
+            </p>
+            <p style="margin-top: 20px; font-size: 0.8rem;">
+                © 2026 GulfCyber.io | Updated daily
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-update timestamp
+        document.addEventListener('DOMContentLoaded', function() {
+            // Could add real-time updates here
+            console.log('GulfCyber.io loaded');
+        });
+    </script>
+</body>
+</html>
