@@ -494,6 +494,157 @@
         }
         .faq-item.active .faq-answer { display: block; }
 
+        /* Submit Intel Section */
+        .submit-section { padding: 40px 0; }
+        .submit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .submit-box, .community-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+        }
+        .submit-box {
+            border-color: var(--warning);
+        }
+        .submit-box h2, .community-box h2 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .submit-box > p {
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .submit-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .submit-form input,
+        .submit-form select,
+        .submit-form textarea {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .submit-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .submit-form input:focus,
+        .submit-form select:focus,
+        .submit-form textarea:focus {
+            outline: none;
+            border-color: var(--warning);
+        }
+        .submit-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .submit-form button {
+            padding: 14px;
+            background: var(--warning);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .submit-form button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        .anon-notice {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+        .anon-notice input[type="checkbox"] {
+            width: auto;
+            padding: 0;
+        }
+        .public-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: var(--surface2);
+            border-radius: 8px;
+        }
+        .public-toggle label {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        .public-toggle input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Community Intel */
+        .community-box h2 { color: var(--accent2); }
+        .community-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .tip-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        .tip-item:last-child { border-bottom: none; }
+        .tip-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+        .tip-content {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .tip-meta {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+        .tip-tag {
+            background: var(--accent2)22;
+            color: var(--accent2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        .empty-tips {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+        }
+        .empty-tips p { margin-bottom: 8px; }
+        
+        @media (max-width: 900px) {
+            .submit-grid { grid-template-columns: 1fr; }
+            .submit-form .form-row { grid-template-columns: 1fr; }
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
@@ -630,7 +781,7 @@
                 <a href="#map">Threat Map</a>
                 <a href="#analytics">Analytics</a>
                 <a href="#feed">Live Feed</a>
-                <a href="#about">About</a>
+                <a href="#submit">Submit Intel</a>
                 <a href="#newsletter">Subscribe</a>
                 <a href="#faq">FAQ</a>
             </nav>
@@ -855,6 +1006,77 @@
                 </div>
             </section>
 
+            <!-- Submit Intel Section -->
+            <section class="submit-section" id="submit" aria-labelledby="submit-title">
+                <div class="submit-grid">
+                    <div class="submit-box">
+                        <h2 id="submit-title">🕵️ Submit Anonymous Intel</h2>
+                        <p>Have threat intel, breach info, or insider knowledge about GCC cyber incidents? Share it anonymously. We verify before publishing.</p>
+                        <form class="submit-form" action="https://formsubmit.co/socratesowl0@gmail.com" method="POST">
+                            <input type="hidden" name="_subject" value="🕵️ Anonymous Intel Submission - GulfCyber">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://socratesowl0-del.github.io/gulfcyber-site/?submitted=1">
+                            <input type="hidden" name="_template" value="table">
+                            
+                            <textarea name="intel" placeholder="Describe the incident, threat, or intel... (required)" required></textarea>
+                            
+                            <div class="form-row">
+                                <input type="text" name="organization" placeholder="Organization/Target (optional)">
+                                <select name="country">
+                                    <option value="">Country (optional)</option>
+                                    <option value="SA">🇸🇦 Saudi Arabia</option>
+                                    <option value="AE">🇦🇪 UAE</option>
+                                    <option value="QA">🇶🇦 Qatar</option>
+                                    <option value="KW">🇰🇼 Kuwait</option>
+                                    <option value="BH">🇧🇭 Bahrain</option>
+                                    <option value="OM">🇴🇲 Oman</option>
+                                    <option value="Other">🌍 Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <select name="type">
+                                    <option value="">Threat Type (optional)</option>
+                                    <option value="Ransomware">Ransomware</option>
+                                    <option value="Data Breach">Data Breach</option>
+                                    <option value="APT Activity">APT Activity</option>
+                                    <option value="Phishing">Phishing Campaign</option>
+                                    <option value="Insider Threat">Insider Threat</option>
+                                    <option value="Vulnerability">Vulnerability</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <input type="text" name="threat_actor" placeholder="Threat Actor (if known)">
+                            </div>
+                            
+                            <div class="public-toggle">
+                                <input type="checkbox" id="make-public" name="make_public" value="yes">
+                                <label for="make-public">Publish my tip anonymously on the Community Intel feed (after verification)</label>
+                            </div>
+                            
+                            <input type="text" name="contact" placeholder="Contact for follow-up (optional, encrypted)">
+                            
+                            <button type="submit">Submit Intel Anonymously →</button>
+                            
+                            <div class="anon-notice">
+                                <span>🔒</span>
+                                <span>Your IP and identity are not logged. Formsubmit handles submissions privately. We never reveal sources.</span>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="community-box">
+                        <h2>💡 Community Intel</h2>
+                        <p style="color: var(--muted); margin-bottom: 15px; font-size: 0.9rem;">Verified anonymous tips from the community</p>
+                        <div class="community-list" id="community-tips">
+                            <div class="empty-tips">
+                                <p>🕵️ No tips yet</p>
+                                <p>Be the first to share intel!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Ad Banner -->
             <aside class="ad-banner" aria-label="Advertisement">
                 <p>Advertisement</p>
@@ -873,9 +1095,9 @@
                 <section class="footer-section">
                     <h4>Quick Links</h4>
                     <a href="#map">Threat Map</a>
-                    <a href="#analytics">Analytics</a>
                     <a href="#feed">Live Feed</a>
-                    <a href="#about">About</a>
+                    <a href="#submit">Submit Intel</a>
+                    <a href="#faq">FAQ</a>
                 </section>
                 <section class="footer-section">
                     <h4>Countries</h4>
@@ -1071,6 +1293,51 @@
         }
 
         setInterval(loadData, 300000);
+
+        // Load community tips
+        async function loadCommunityTips() {
+            try {
+                const response = await fetch('tips.json?t=' + Date.now());
+                const data = await response.json();
+                renderCommunityTips(data.tips);
+            } catch (error) {
+                console.log('No tips available yet');
+            }
+        }
+
+        function renderCommunityTips(tips) {
+            const container = document.getElementById('community-tips');
+            if (!tips || tips.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-tips">
+                        <p>🕵️ No tips yet</p>
+                        <p>Be the first to share intel!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const tipsHtml = tips.slice(0, 20).map(tip => `
+                <div class="tip-item">
+                    <div class="tip-date">${tip.date}</div>
+                    <div class="tip-content">${tip.content}</div>
+                    <div class="tip-meta">
+                        ${tip.country ? `<span>${tip.country}</span>` : ''}
+                        ${tip.type ? `<span class="tip-tag">${tip.type}</span>` : ''}
+                        ${tip.actor ? `<span>👹 ${tip.actor}</span>` : ''}
+                    </div>
+                </div>
+            `).join('');
+            container.innerHTML = tipsHtml;
+        }
+
+        // Check for submission success
+        if (window.location.search.includes('submitted=1')) {
+            alert('✅ Thank you! Your intel has been submitted anonymously. We will review and may publish it if verified.');
+            history.replaceState({}, '', window.location.pathname);
+        }
+
+        loadCommunityTips();
     </script>
 </body>
 </html>
