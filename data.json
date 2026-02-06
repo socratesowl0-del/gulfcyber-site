@@ -1,0 +1,65 @@
+{
+  "updated": "2026-02-06T00:30:00Z",
+  "stats": {
+    "total": 227,
+    "sa": 57,
+    "ae": 127,
+    "active_groups": 23,
+    "last_24h": 2
+  },
+  "countries": {
+    "SA": 57,
+    "AE": 127,
+    "QA": 12,
+    "KW": 18,
+    "BH": 8,
+    "OM": 5
+  },
+  "groups": {
+    "LockBit": 48,
+    "Clop": 32,
+    "Medusa": 24,
+    "ALPHV": 20,
+    "Play": 18,
+    "Tengu": 12,
+    "Kazu": 10,
+    "RansomHub": 15,
+    "8Base": 11,
+    "Everest": 9
+  },
+  "sectors": {
+    "Technology": 42,
+    "Manufacturing": 35,
+    "Healthcare": 28,
+    "Finance": 24,
+    "Government": 18,
+    "Construction": 22,
+    "Energy": 15,
+    "Retail": 12
+  },
+  "timeline": {
+    "labels": ["Jan W1", "Jan W2", "Jan W3", "Jan W4", "Feb W1"],
+    "data": [18, 24, 15, 22, 12]
+  },
+  "victims": [
+    {"date": "2026-01-14", "name": "seha.org.sa", "group": "Tengu", "sector": "Healthcare", "country": "Saudi Arabia"},
+    {"date": "2025-12-29", "name": "Saudi Icon", "group": "Kazu", "sector": "Construction", "country": "Saudi Arabia"},
+    {"date": "2025-12-26", "name": "arabfalcons.com", "group": "LockBit5", "sector": "Technology", "country": "Saudi Arabia"},
+    {"date": "2025-12-26", "name": "soeuae.ae", "group": "LockBit5", "sector": "Professional Services", "country": "UAE"},
+    {"date": "2025-11-21", "name": "AQM.COM.SA", "group": "Clop", "sector": "Manufacturing", "country": "Saudi Arabia"},
+    {"date": "2025-11-21", "name": "ALJOMAIHAUTO.COM", "group": "Clop", "sector": "Automotive", "country": "Saudi Arabia"},
+    {"date": "2025-10-27", "name": "Alissa Group", "group": "Medusa", "sector": "Conglomerate", "country": "Saudi Arabia"},
+    {"date": "2025-10-22", "name": "United Lube Oil", "group": "RansomHouse", "sector": "Energy", "country": "Saudi Arabia"},
+    {"date": "2025-10-10", "name": "Sunbulah Group", "group": "Sinobi", "sector": "Food & Agriculture", "country": "Saudi Arabia"},
+    {"date": "2025-07-13", "name": "Rezayat Group", "group": "Everest", "sector": "Conglomerate", "country": "Saudi Arabia"},
+    {"date": "2025-07-09", "name": "TBC (PIF)", "group": "Incransom", "sector": "Government", "country": "Saudi Arabia"},
+    {"date": "2025-06-12", "name": "Ajmanre.gov.ae", "group": "Flocker", "sector": "Government", "country": "UAE"},
+    {"date": "2025-05-02", "name": "Jamjoom Pharma", "group": "Everest", "sector": "Healthcare", "country": "Saudi Arabia"},
+    {"date": "2025-04-11", "name": "mbmdubai.com", "group": "BrainCipher", "sector": "Business Services", "country": "UAE"},
+    {"date": "2024-02-28", "name": "Saudia MRO", "group": "8Base", "sector": "Aviation", "country": "Saudi Arabia"}
+  ],
+  "sources": {
+    "darkweb": ["lockbit", "clop", "medusa"],
+    "clearnet": ["ransomware.live", "ransomwatch"]
+  }
+}

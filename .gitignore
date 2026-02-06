@@ -1,0 +1,5 @@
+# Keep sensitive files out of public repo
+*.log
+*.bak
+.env
+credentials.json
