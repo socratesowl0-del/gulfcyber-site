@@ -1,6 +1,10 @@
 {
-  "scan_time": "2026-02-06T23:17:01.981468+00:00",
-  "total_scanned": 0,
+  "scan_time": "2026-02-06T23:28:35.865829+00:00",
+  "sources": [
+    "certstream",
+    "crt.sh"
+  ],
+  "new_domains_found": 0,
   "suspicious_count": 0,
   "suspicious_domains": [],
   "recent_domains": []
